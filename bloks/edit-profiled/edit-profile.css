@@ -1,0 +1,17 @@
+@import url(./__title/edit-profile__title.css);
+@import url(./__button-save/edit-profile__button-save.css);
+.popup__container {
+    width: 430px;
+    height: 330px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 36px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
