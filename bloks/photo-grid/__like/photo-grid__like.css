@@ -1,0 +1,12 @@
+@import url(./_black/photo-grid__like_black.css);
+.photo-grid__like {
+    border: none;
+    background: none;
+    line-height: 0;
+    padding: 0;
+    background-image: url(../../../images/Vector.svg);
+    width: 21px;
+    height: 18px;
+    background-repeat: no-repeat;
+    outline: none;
+}

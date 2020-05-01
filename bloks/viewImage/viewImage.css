@@ -1,0 +1,10 @@
+@import url(./__item/viewImage__item.css);
+@import url(./__text/viewImage__text.css);
+.viewImage {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
