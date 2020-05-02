@@ -30,20 +30,25 @@
     <section class="photo-grid">
     </section>
     <section class="popup">
-      <form class="popup__container">
+      <form class="popup__container" id="change-profile">
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__field" type="text" placeholder="Имя" value="">
-        <input class="popup__field" type="text" placeholder="О себе" value="">
+        <input class="popup__field" type="text" placeholder="Имя" value="" id="name">
+        <input class="popup__field" type="text" placeholder="О себе" value="" id="description">
         <button class="popup__button-save" type="submit">Сохранить</button>
         <button class="popup__button-close" type="button"><img class="popup__button-close_img" src="./images/CloseIcon.svg" alt="кнопка закрыть"></button>
       </form>
-      <form class="popup__container">
+      <form class="popup__container" id="addCard">
         <h3 class="popup__title">Новое место</h3>
-        <input class="popup__field" type="text" placeholder="Название" value="">
-        <input class="popup__field" type="text" placeholder="Ссылка на картинку" value="">
+        <input class="popup__field" type="text" placeholder="Название" value="" id="image-title">
+        <input class="popup__field" type="text" placeholder="Ссылка на картинку" value="" id="link-img">
         <button class="popup__button-save" type="submit">Создать</button>
         <button class="popup__button-close" type="button"><img class="popup__button-close_img" src="./images/CloseIcon.svg" alt="кнопка закрыть"></button>
       </form>
+      <div class="viewImage">
+        <img src="#" alt="" class="viewImage__item">
+        <p class="viewImage__text"></p>
+        <button class="popup__button-close" type="button"><img class="popup__button-close_img" src="./images/CloseIcon.svg" alt="кнопка закрыть"></button>
+    </div>
     </section>
   </main>
   <footer class="footer">

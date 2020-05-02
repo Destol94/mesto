@@ -13,5 +13,5 @@
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
+    transition: visibility .5s, opacity .5s linear;
 }

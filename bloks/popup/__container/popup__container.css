@@ -10,7 +10,7 @@
     border-radius: 10px;
     padding: 36px;
     box-sizing: border-box;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     visibility: hidden;
