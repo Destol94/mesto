@@ -11,3 +11,9 @@
         font-size: 15px;
     }
 }
+.popup__button-save:disabled {
+    background-color: white;
+    opacity: .2;
+    border: 1px solid #000000;
+    color: black;
+}

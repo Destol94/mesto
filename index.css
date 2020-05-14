@@ -12,5 +12,6 @@
 @import url(./bloks/photo-grid/__like/_black/photo-grid__like_black.css);
 @import url(./bloks/popup/popup.css);
 @import url(./bloks/popup/_opened/popup_opened.css);
+@import url(./bloks/popup/__error-text/_open/popup__error-text_open.css);
 @import url(./bloks/viewImage/viewImage.css);
 @import url(./bloks/popup/__container/_open/popup__container_open.css);

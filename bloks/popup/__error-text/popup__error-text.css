@@ -1,0 +1,9 @@
+@import url(./_open/popup__error-text_open.css);
+.popup__error-text {
+    visibility: hidden;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: red;
+    margin-top: -15px;
+}

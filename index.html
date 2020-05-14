@@ -32,15 +32,19 @@
     <section class="popup">
       <form class="popup__container" id="change-profile">
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__field" type="text" placeholder="Имя" value="" id="name">
-        <input class="popup__field" type="text" placeholder="О себе" value="" id="description">
+        <input class="popup__field" type="text" placeholder="Имя" value="a" id="name" minlength="2" maxlength="40" required pattern="[а-яА-ЯёЁA-Za-z\s\-]*">
+        <span class="popup__error-text" id="name-error"></span>
+        <input class="popup__field" type="text" placeholder="О себе" value="a" id="description" minlength="2" maxlength="200" required>
+        <span class="popup__error-text" id="description-error"></span>
         <button class="popup__button-save" type="submit">Сохранить</button>
         <button class="popup__button-close" type="button"><img class="popup__button-close_img" src="./images/CloseIcon.svg" alt="кнопка закрыть"></button>
       </form>
       <form class="popup__container" id="addCard">
         <h3 class="popup__title">Новое место</h3>
-        <input class="popup__field" type="text" placeholder="Название" value="" id="image-title">
-        <input class="popup__field" type="text" placeholder="Ссылка на картинку" value="" id="link-img">
+        <input class="popup__field" type="text" placeholder="Название" value="" id="image-title" required minlength="1" maxlength="30">
+        <span class="popup__error-text" id="image-title-error"></span>
+        <input class="popup__field" type="url" placeholder="Ссылка на картинку" value="" id="link-img" required>
+        <span class="popup__error-text" id="link-img-error"></span>
         <button class="popup__button-save" type="submit">Создать</button>
         <button class="popup__button-close" type="button"><img class="popup__button-close_img" src="./images/CloseIcon.svg" alt="кнопка закрыть"></button>
       </form>
@@ -72,5 +76,6 @@
   </div>
   </template>
   <script src="./script.js"></script>
+  <script src="./validate.js"></script>
 </body>
 </html>
