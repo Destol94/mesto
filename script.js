@@ -43,7 +43,15 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-
+const enableValidationt = ({
+    formSelector: '.popup__container',
+    inputSelector: '.popup__field',
+    submitButtonSelector: '.popup__button-save',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error-text_open'
+  });
+  
 function createCard() {
     const cardTemplate = document.querySelector('#card-template').content;
     const card = cardTemplate.cloneNode('true');
@@ -70,6 +78,12 @@ function closeViewImage() {
     viewImage.classList.remove('popup__container_open');
 }
 
+function closePopupPressingButtom(evt) {
+    if (evt.code === 'Escape') {
+        closeForm();
+    }
+ }
+
 function browsingImage(card) { 
     const img = card.querySelector('.photo-grid__img');
     img.addEventListener('click', function() {
@@ -79,6 +93,7 @@ function browsingImage(card) {
         viewImage.querySelector('.viewImage__text').textContent = img.alt;
         viewImage.classList.add('popup__container_open');
         document.querySelector('.viewImage').querySelector('.popup__button-close').addEventListener('click', closeViewImage);
+        page.addEventListener('keyup', closePopupPressingButtom)
     }); 
 }
 
@@ -89,7 +104,7 @@ function addInteractiveCard(card) {
     photoGrid.prepend(card);
 }
 
-function CardLoad() {
+function loadCard() {
     for (let i=0; i<initialCards.length; i++) {
         card = createCard();
         card.querySelector('.photo-grid__img').src = initialCards[i].link;
@@ -98,7 +113,7 @@ function CardLoad() {
         addInteractiveCard(card);
     }
 }
-CardLoad();
+loadCard();
 
 
 function editProfile() {
@@ -106,15 +121,22 @@ function editProfile() {
     changeProfile.classList.add('popup__container_open');
     name.value = profileName.textContent;
     description.value = profileDescription.textContent;
+    page.addEventListener('keyup', closePopupPressingButtom);
+    enableValidation();
 }
 
 //закрытие форм
 function closeForm() {
     popup.classList.remove('popup_opened');
-    formElement.forEach(item => {
-        item.classList.remove('popup__container_open');
+    formElement.forEach(form => {
+        form.querySelectorAll('.popup__error-text').forEach(element => {
+            element.classList.remove('popup__error-text_open');
+        });
+        form.classList.remove('popup__container_open');
     });
     closeViewImage();
+    page.removeEventListener('keyup', closePopupPressingButtom);
+
 }
 
 function formSubmitHandler (evt) {
@@ -138,6 +160,8 @@ function addEventlistener() {
     addButton.addEventListener('click', function() {
         popup.classList.add('popup_opened');
         addCard.classList.add('popup__container_open');
+        page.addEventListener('keyup', closePopupPressingButtom);
+        enableValidation();
     });
     //закрытие формы по нажатию кнопку на сохранить
     buttonSave.forEach(element => {
@@ -156,10 +180,6 @@ function addEventlistener() {
             closeForm();
         }
     });
-    page.addEventListener('keyup', function(evt){
-        if (evt.code === 'Escape') {
-            closeForm();
-        }
-    })
 }
 addEventlistener();
+ 
