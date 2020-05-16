@@ -43,21 +43,22 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-const enableValidationt = ({
+const variablesForEnableValidation = ({
     formSelector: '.popup__container',
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__button-save',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error-text_open'
   });
   
-function createCard() {
+
+function createCard(link, name) {
     const cardTemplate = document.querySelector('#card-template').content;
     const card = cardTemplate.cloneNode('true');
+    card.querySelector('.photo-grid__img').src = link;
+    card.querySelector('.photo-grid__img').alt = name;
+    card.querySelector('.photo-grid__figcaption').textContent = name;
     return card;
 }
-
 
 function addActionLike(card) {
     const like = card.querySelector('.photo-grid__like');
@@ -104,15 +105,15 @@ function addInteractiveCard(card) {
     photoGrid.prepend(card);
 }
 
+
+
 function loadCard() {
-    for (let i=0; i<initialCards.length; i++) {
-        card = createCard();
-        card.querySelector('.photo-grid__img').src = initialCards[i].link;
-        card.querySelector('.photo-grid__img').alt = initialCards[i].name;
-        card.querySelector('.photo-grid__figcaption').textContent = initialCards[i].name;
+    initialCards.forEach(item => {
+        card = createCard(item.link, item.name);
         addInteractiveCard(card);
-    }
+    })
 }
+
 loadCard();
 
 
@@ -147,10 +148,7 @@ function formSubmitHandler (evt) {
 
 function formSubmitHandlerAddImg (evt) {
     evt.preventDefault();
-    card = createCard();
-    card.querySelector('.photo-grid__img').src = linkImg.value;
-    card.querySelector('.photo-grid__img').alt = imageTitle.value;
-    card.querySelector('.photo-grid__figcaption').textContent = imageTitle.value;
+    card = createCard(linkImg.value, imageTitle.value);
     addInteractiveCard(card);
     linkImg.value = '';
     imageTitle.value = '';

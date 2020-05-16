@@ -1,12 +1,3 @@
-// const enableValidationt = ({
-//     formSelector: '.popup__container',
-//     inputSelector: '.popup__field',
-//     submitButtonSelector: '.popup__button-save',
-//     inactiveButtonClass: 'popup__button_disabled',
-//     inputErrorClass: 'popup__input_type_error',
-//     errorClass: 'popup__error-text_open'
-//   });
-
 function hasInvalidInput(inputList) {
     return inputList.some((input) => {
         return !input.validity.valid;
@@ -22,22 +13,21 @@ function toggleButtonState(inputList, button) {
     }
 }
 
-
 function checkInputValidity(formElement, input){
     const itemError = formElement.querySelector(`#${input.id}-error`);
     if (input.validity.valid) {
-        itemError.classList.remove(`${enableValidationt.errorClass}`);
+        itemError.classList.remove(`${variablesForEnableValidation.errorClass}`);
         itemError.textContent = '';
     }
     else {
-        itemError.classList.add(`${enableValidationt.errorClass}`);
+        itemError.classList.add(`${variablesForEnableValidation.errorClass}`);
         itemError.textContent = input.validationMessage;
     }
 }
 
 function setValidationEventListeners(form) {
-    const inputList = Array.from(form.querySelectorAll(`${enableValidationt.inputSelector}`));
-    const button = form.querySelector(`${enableValidationt.submitButtonSelector}`);
+    const inputList = Array.from(form.querySelectorAll(`${variablesForEnableValidation.inputSelector}`));
+    const button = form.querySelector(`${variablesForEnableValidation.submitButtonSelector}`);
     toggleButtonState(inputList, button);
     inputList.forEach(input => {
         input.addEventListener('input', function(){
@@ -48,7 +38,7 @@ function setValidationEventListeners(form) {
 }
 
 function enableValidation() {
-    elemForm = Array.from(document.querySelectorAll(`${enableValidationt.formSelector}`));
+    elemForm = Array.from(document.querySelectorAll(`${variablesForEnableValidation.formSelector}`));
     elemForm.forEach(element => {
         setValidationEventListeners(element);
     });
