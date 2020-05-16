@@ -109,7 +109,7 @@ function addInteractiveCard(card) {
 
 function loadCard() {
     initialCards.forEach(item => {
-        card = createCard(item.link, item.name);
+        const card = createCard(item.link, item.name);
         addInteractiveCard(card);
     })
 }

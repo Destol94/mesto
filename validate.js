@@ -37,8 +37,8 @@ function setValidationEventListeners(form) {
     })
 }
 
-function enableValidation() {
-    elemForm = Array.from(document.querySelectorAll(`${variablesForEnableValidation.formSelector}`));
+function enableValidation(allSettings = variablesForEnableValidation) {
+    elemForm = Array.from(document.querySelectorAll(`${allSettings.formSelector}`));
     elemForm.forEach(element => {
         setValidationEventListeners(element);
     });
