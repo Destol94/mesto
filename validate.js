@@ -13,7 +13,7 @@ function toggleButtonState(inputList, button) {
     }
 }
 
-function checkInputValidity(formElement, input){
+function checkInputValidity(formElement, input, variablesForEnableValidation){
     const itemError = formElement.querySelector(`#${input.id}-error`);
     if (input.validity.valid) {
         itemError.classList.remove(`${variablesForEnableValidation.errorClass}`);
@@ -25,13 +25,13 @@ function checkInputValidity(formElement, input){
     }
 }
 
-function setValidationEventListeners(form) {
+function setValidationEventListeners(form, variablesForEnableValidation) {
     const inputList = Array.from(form.querySelectorAll(`${variablesForEnableValidation.inputSelector}`));
     const button = form.querySelector(`${variablesForEnableValidation.submitButtonSelector}`);
     toggleButtonState(inputList, button);
     inputList.forEach(input => {
         input.addEventListener('input', function(){
-            checkInputValidity(form, input);
+            checkInputValidity(form, input, variablesForEnableValidation);
             toggleButtonState(inputList, button);
         });
     })
@@ -40,7 +40,7 @@ function setValidationEventListeners(form) {
 function enableValidation(allSettings = variablesForEnableValidation) {
     elemForm = Array.from(document.querySelectorAll(`${allSettings.formSelector}`));
     elemForm.forEach(element => {
-        setValidationEventListeners(element);
+        setValidationEventListeners(element, variablesForEnableValidation);
     });
 }
 enableValidation();
