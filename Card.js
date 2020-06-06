@@ -12,19 +12,19 @@ export default class Card {
         card.querySelector('.photo-grid__figcaption').textContent = this._text;
         return card;
     }
-    _addActionLike() {
+    _initLikeListener() {
         const like = this.card.querySelector('.photo-grid__like');
             like.addEventListener('click', (event) => {
                 event.target.classList.toggle('photo-grid__like_black');
             });
     }
-    _deleteCard() {
+    _initDeleteCardListener() {
         const del = this.card.querySelector('.photo-grid__delete');
         del.addEventListener('click', (event) => {
             event.target.parentNode.remove();
         });
     }
-    _browsingImage() { 
+    _initFullImageListener() { 
         const img = this.card.querySelector('.photo-grid__img');
         img.addEventListener('click', () => {
             popup.classList.add('popup_opened');
@@ -37,14 +37,14 @@ export default class Card {
             page.addEventListener('keyup', closePopupPressingButtom);
         }); 
     }
-    _addEvent() {
-        this._addActionLike();
-        this._deleteCard();
-        this._browsingImage();
+    _initListeners() {
+        this._initLikeListener();
+        this._initDeleteCardListener();
+        this._initFullImageListener();
     }
     generateCard() {        
         this.card = this._getTemplate();
-        this._addEvent();
+        this._initListeners();
         return this.card;
     }
 

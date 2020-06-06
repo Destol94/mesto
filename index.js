@@ -1,17 +1,17 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import {page, profileName, profileDescription, addButton, editButton, photoGrid, popup, changeProfile, addCard, name,
-    description, imageTitle, linkImg, buttonSave, buttonClose, initialCards,
+    description, imageTitle, linkImg, buttonSave, buttonClose,
     closeForm, closePopupPressingButtom} from './library.js';
-
-function loadCard() {
+import {initialCards} from './data.js';
+function loadCards() {
     initialCards.forEach(item => {
         const card = new Card(item.name, item.link);
         photoGrid.prepend(card.generateCard());
     })
 }
 
-loadCard();
+loadCards();
 
 function editProfile() {
     popup.classList.add('popup_opened');
