@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./page/style.css" rel="stylesheet">
+  <title>mesto</title>
+</head>
+<body>
+  <div class="page">
+    <div class="content">
+      <header class="header">
+        <img src="./image/logo.svg" alt="Логотип страницы" class="header__logo">
+      </header>
+      <main class="main">
+        <div class="profile">
+          <div class="profile__container">
+            <img src="./image/Avatar.jpg" alt="Фотография Жак-Ив Кусто" class="profile__avatar">
+            <div class="profile__info">
+              <div class="profile__name-edit">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__edit-button button" type="button"><img src="./image/Edit Button.svg" alt="кнопка изменить" class="profile__edit-button-img"></button>
+              </div>
+              <p class="profile__occupation">Исследователь океана</p>
+            </div>
+          </div>
+          <button class="profile__add-button button"><img src="./image/Vector.svg" alt="+" class="profile__add-button-img"></button>
+        </div>
+        <div class="elements">
+          <div class="element">
+            <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="Старая крепость на фоне гор" class="element__img">
+            <div class="element__footer">
+              <p class="element__text">Карачаевск</p>
+              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class=element__heart_img"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="РАссвет в поле, а в дали гора" class="element__img">
+            <div class="element__footer">
+              <p class="element__text">Гора Эльбрус</p>
+              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class=element__heart_img"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="Лесистые горы на переднем плане, на заднем высокие горы в снегу" class="element__img">
+            <div class="element__footer">
+              <p class="element__text">Домбай</p>
+              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class=element__heart_img"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="РАссвет в поле, а в дали гора" class="element__img">
+            <div class="element__footer">
+              <p class="element__text">Гора Эльбрус</p>
+              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class=element__heart_img"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="Лесистые горы на переднем плане, на заднем высокие горы в снегу" class="element__img">
+            <div class="element__footer">
+              <p class="element__text">Домбай</p>
+              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class=element__heart_img"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="Старая крепость на фоне гор" class="element__img">
+            <div class="element__footer">
+              <p class="element__text">Карачаево-Черкессия</p>
+              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class=element__heart_img"></button>
+            </div>
+          </div>
+        </div>
+        <div class="popup">
+          <form class="popup__container">
+            <p class="popup__title">Редактировать профиль</p>
+            <input type="text" class="popup__name" value="">
+            <input type="text" class="popup__occupation" value="">
+            <button type="submit" class="popup__btn-submit button">Сохранить</button>
+            <button type="button" class="popup__btn-close button"><img class="popup__btn-close_img"src="./image/Close Icon.svg"></button>
+          </form>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+      </footer>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
