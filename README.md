@@ -10,6 +10,4 @@
 * с помощью JS добавили функциональности сайту
 
 **ссылка на GitHub Pages**
-
-https://github.com/Destol94/mesto.git
 https://destol94.github.io/mesto/index.html
