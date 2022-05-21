@@ -7,6 +7,6 @@
   .header__logo {
     width: 104px;
     height: 25px;
-    margin: 28px auto 32px 0;
+    margin: 28px auto 32px calc(27px - 19px);
   }
 }
