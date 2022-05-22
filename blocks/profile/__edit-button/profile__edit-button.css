@@ -6,7 +6,7 @@
   transform: translate(0, 4px);
   border: none;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 918px) {
   .profile__edit-button {
     width: 18px;
     height: 18px;

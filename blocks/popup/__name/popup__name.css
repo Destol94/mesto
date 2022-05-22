@@ -5,5 +5,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-
+  padding: 0;
+  margin-bottom: 16px;
+}
+@media screen and (max-width: 800px) {
+  .popup__name {
+    height: 37px;
+    margin-bottom: 19px;
+  }
 }
