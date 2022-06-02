@@ -9,12 +9,11 @@
 </head>
 <body>
   <div class="page">
-    <div class="content">
-      <header class="header">
-        <img src="./image/logo.svg" alt="Логотип страницы" class="header__logo">
-      </header>
-      <main class="main">
-        <section class="profile">
+    <header class="header">
+      <img src="./image/logo.svg" alt="Логотип страницы" class="header__logo">
+    </header>
+    <main class="main">
+      <section class="profile">
           <div class="profile__container">
             <img src="./image/Avatar.jpg" alt="Фотография Жак-Ив Кусто" class="profile__avatar">
             <div class="profile__info">
@@ -26,65 +25,46 @@
             </div>
           </div>
           <button class="profile__add-button button" type="button"><img src="./image/Vector.svg" alt="добавить" class="profile__add-button-img"></button>
-        </section>
-        <section class="elements">
-          <div class="element">
-            <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="Старая крепость на фоне гор" class="element__img">
-            <div class="element__footer">
-              <h2 class="element__text">Карачаевск</h2>
-              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="РАссвет в поле, а в дали гора" class="element__img">
-            <div class="element__footer">
-              <h2 class="element__text">Гора Эльбрус</h2>
-              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img" ></button>
-            </div>
-          </div>
-          <div class="element">
-            <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="Лесистые горы на переднем плане, на заднем высокие горы в снегу" class="element__img">
-            <div class="element__footer">
-              <h2 class="element__text">Домбай</h2>
-              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="РАссвет в поле, а в дали гора" class="element__img">
-            <div class="element__footer">
-              <h2 class="element__text">Гора Эльбрус</h2>
-              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="Лесистые горы на переднем плане, на заднем высокие горы в снегу" class="element__img">
-            <div class="element__footer">
-              <h2 class="element__text">Домбай</h2>
-              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="Старая крепость на фоне гор" class="element__img">
-            <div class="element__footer">
-              <h2 class="element__text">Карачаево-Черкессия</h2>
-              <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
-      </footer>
-      <div class="popup">
-        <form class="popup__container" name="popupForm">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" class="popup__name" value="" name="inputName">
-          <input type="text" class="popup__occupation" value="" name="inpitOccupation">
-          <button type="submit" class="popup__btn-submit button">Сохранить</button>
-          <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
-        </form>
+      </section>
+      <section class="elements">
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <form class="popup__container" name="popupFormEdit" id="#popupFormEdit">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" class="popup__name" value="" name="inputName">
+        <input type="text" class="popup__occupation" value="" name="inpitOccupation">
+        <button type="submit" class="popup__btn-submit button">Сохранить</button>
+        <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
+      </form>
+      <form class="popup__container" name="popupFormAddCard" id="#popupFormAddCard">
+        <h2 class="popup__title">Новое место</h2>
+        <input type="text" class="popup__name" value="" name="inputName" placeholder="Название">
+        <input type="text" class="popup__occupation" value="" name="inpitOccupation" placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__btn-submit button">Создать</button>
+        <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
+      </form>
+      <div class="zoom">
+        <figure class="zoom__container">
+          <img class="zoom__img" src="" alt="">
+          <figcaption class="zoom__figcaption"></figcaption>
+        </figure>
+        <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
       </div>
     </div>
+    <template id="element">
+      <div class="element">
+        <img src="" alt="" class="element__img">
+        <div class="element__footer">
+          <h2 class="element__text"></h2>
+          <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
+          <button class="element__trashcan button"><img src="./image/trashcan.svg" alt="кнопка удаления карточки"></button>
+        </div>
+      </div>
+    </template>
   </div>
   <script src="./scripts/index.js"></script>
 </body>
