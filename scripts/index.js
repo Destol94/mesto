@@ -40,15 +40,7 @@ const initialCards = [
   }
 ]; 
 
-function addElement(item) {
-  const elementTemplate = document.querySelector('#element').content;
-  const elem = elementTemplate.querySelector('.element').cloneNode(true);
-  const img = elem.querySelector('.element__img');
-  img.src = item.link;
-  elem.querySelector('.element__text').textContent = item.name;
-  elem.querySelector('.element__img').alt = item.name;
-  elements.prepend(elem);
-
+function addInteractiveCard (elem, img) {
   const buttonLikeImg = elem.querySelector('.element__heart-img');
   buttonLikeImg.addEventListener('click',  () => {
     if (!(buttonLikeImg.src.indexOf('heart') === -1)) {
@@ -58,7 +50,7 @@ function addElement(item) {
       buttonLikeImg.src = './image/heart.svg'
     }
   });
-
+  
   const buttonDeleteCard = elem.querySelector('.element__trashcan');
   buttonDeleteCard.addEventListener('click', (evt) => {
     evt.target.closest('.element').remove();
@@ -87,6 +79,19 @@ function openPopup(evt) {
   }
 }
 
+function addElement(item) {
+  const elementTemplate = document.querySelector('#element').content;
+  const elem = elementTemplate.querySelector('.element').cloneNode(true);
+  const img = elem.querySelector('.element__img');
+  img.src = item.link;
+  elem.querySelector('.element__text').textContent = item.name;
+  elem.querySelector('.element__img').alt = item.name;
+  elements.prepend(elem);
+
+  addInteractiveCard(elem, img);
+}
+
+
 function closePopup(evt) {
   popup.classList.remove('popup_opened');
   evt.target.closest('.popup_opened').classList.remove('popup_opened');
@@ -111,6 +116,8 @@ function formSubmitAdd (evt) {
   url.value = '';
   closePopup(evt);
 }
+
+
 editButton.addEventListener('click', openPopup);
 closeButtons.forEach(item => {(item.addEventListener('click', closePopup))});
 formEdit.addEventListener('submit', formSubmitHandler);

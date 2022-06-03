@@ -1,7 +1,10 @@
 .popup__container {
   position: absolute;
   background-color: white;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s, visibility .5s linear;
   flex-direction: column;
   width: 430px;
   height: 330px;
