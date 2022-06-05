@@ -32,24 +32,24 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
-      <form class="popup__container" name="popupFormEdit" id="#popupFormEdit">
+    <div class="popup-container">
+      <form class="popup popup__form popup__form-edit" name="popupFormEdit" id="#popupFormEdit">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input type="text" class="popup__name" value="" name="inputName">
         <input type="text" class="popup__occupation" value="" name="inpitOccupation">
         <button type="submit" class="popup__btn-submit button">Сохранить</button>
         <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
       </form>
-      <form class="popup__container" name="popupFormAddCard" id="#popupFormAddCard">
+      <form class="popup popup__form popup__form-card" name="popupFormAddCard" id="#popupFormAddCard">
         <h2 class="popup__title">Новое место</h2>
         <input type="text" class="popup__name" value="" name="inputName" placeholder="Название">
         <input type="text" class="popup__occupation" value="" name="inpitOccupation" placeholder="Ссылка на картинку">
         <button type="submit" class="popup__btn-submit button">Создать</button>
         <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
       </form>
-      <div class="zoom">
+      <div class="popup zoom">
         <figure class="zoom__container">
-          <img class="zoom__img" src="" alt="">
+          <img class="zoom__img" src="./image/CloseIcon.svg" alt="">
           <figcaption class="zoom__figcaption"></figcaption>
         </figure>
         <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
@@ -57,10 +57,10 @@
     </div>
     <template id="element">
       <div class="element">
-        <img src="" alt="" class="element__img">
+        <img src="./image/CloseIcon.svg" alt="" class="element__img">
         <div class="element__footer">
           <h2 class="element__text"></h2>
-          <button class="element__btn-heart button" type="button"><img src="./image/heart.svg" alt="лайк" class="element__heart-img"></button>
+          <button class="element__btn-heart button" type="button"><!--<img src="./image/heart.svg" alt="лайк" class="element__heart-img">--></button>
           <button class="element__trashcan button"><img src="./image/trashcan.svg" alt="кнопка удаления карточки"></button>
         </div>
       </div>

@@ -1,11 +1,5 @@
 .zoom {
-  display: flex;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity .5s, visibility .5s linear;
-  position: absolute;
   left: 50vw;
   top: 50vh;
   transform: translate(-50%, -50%);
 }
-

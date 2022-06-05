@@ -1,10 +1,6 @@
-.popup__container {
-  position: absolute;
+.popup__form {
   background-color: white;
   display: flex;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity .5s, visibility .5s linear;
   flex-direction: column;
   width: 430px;
   height: 330px;
@@ -16,7 +12,7 @@
   box-sizing: border-box;
 }
 @media screen and (max-width: 800px) {
-  .popup__container {
+  .popup__form {
     width: 282px;
     padding: 25px 22px;
     height: 322px;
