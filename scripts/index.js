@@ -66,7 +66,6 @@ function openPopup(item) {
   item.classList.add('popup_opened');
 }
 
-
 function editPopup () {
   nameInput.value = nameProfile.textContent;
   jobInput.value = occupationProfile.textContent;
@@ -74,11 +73,9 @@ function editPopup () {
   openPopup(profilePopup);
 }
 
-
 function addCardPopup() {
   openPopup(cardPopup);
 }
-
 
 function addElement(item) {
   const elem = elementTemplate.querySelector('.element').cloneNode(true);
@@ -87,21 +84,19 @@ function addElement(item) {
   elem.querySelector('.element__text').textContent = item.name;
   elem.querySelector('.element__img').alt = item.name;
   addInteractiveCard(elem, img);
-  elements.prepend(elem);
-  /*renderCard(elem);*/
+  return elem;
 }
-
 
 function closePopup(evt) {
   popupContainer.classList.remove('popup_opened');
-  evt.target.closest('.popup_opened').classList.remove('popup_opened');
+  evt.classList.remove('popup_opened');
 }
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   occupationProfile.textContent = jobInput.value;
-  closePopup(evt);
+  closePopup(profilePopup);
 }
 
 function formSubmitAdd (evt) {
@@ -111,19 +106,22 @@ function formSubmitAdd (evt) {
   const url = cardPopup.querySelector('.popup__occupation');
   item.name = name.value;
   item.link = url.value;
-  addElement(item);
-  name.value = '';
-  url.value = '';
-  closePopup(evt);
+  renderCard(item);
+  cardPopup.reset();
+  closePopup(cardPopup);
 }
 
-/*function renderCard (elem) {
-  elements.prepend(elem);
-}*/
+function renderCard (elem) {
+  elements.prepend(addElement(elem));
+}
 
-buttonsCloseList.forEach(item => {(item.addEventListener('click', closePopup))});
 profilePopup.addEventListener('submit', formSubmitHandler);
 buttonEdit.addEventListener('click', editPopup);
 cardPopup.addEventListener('submit', formSubmitAdd);
 buttonAdd.addEventListener('click', addCardPopup);
-initialCards.forEach(addElement);
+initialCards.forEach(renderCard);
+buttonsCloseList.forEach(item => {
+  item.addEventListener('click' , () => {
+    closePopup(item.closest('.popup'));
+  });
+});
