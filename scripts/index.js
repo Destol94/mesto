@@ -1,15 +1,15 @@
 const content = document.querySelector('.page');
 const interactiveContainer = content.querySelector('.popup-container');
 const cardsContainer = content.querySelector('.elements');
-const profilePopup = document.querySelector('.popup_form_edit');
-const formCard = document.querySelector('.popup_form_card');
-const name = formCard.querySelector('.popup__name');
-const url = formCard.querySelector('.popup__occupation');
-const imagePopup = interactiveContainer.querySelector('.zoom');
+const profilePopup = content.querySelector('.popup_form_edit');
 const nameInput = profilePopup.querySelector('.popup__name');
 const jobInput = profilePopup.querySelector('.popup__occupation');
-const elementTemplate = document.querySelector('#element').content;
-const buttonsCloseList = Array.from(interactiveContainer.querySelectorAll('.popup__btn-close'));
+const formCard = content.querySelector('.popup_form_card');
+const name = formCard.querySelector('.popup__name');
+const url = formCard.querySelector('.popup__occupation');
+const imagePopup = content.querySelector('.zoom');
+const elementTemplate = content.querySelector('#element').content;
+const buttonsCloseList = Array.from(content.querySelectorAll('.popup__btn-close'));
 const profile = content.querySelector('.profile');
 const nameProfile = profile.querySelector('.profile__name');
 const occupationProfile = profile.querySelector('.profile__occupation');
@@ -64,8 +64,7 @@ function addInteractiveCard (elem, img) {
 }
 
 function openPopup(item) {
-  interactiveContainer.classList.add('popup_opened');
-  item.classList.add('popup_opened');
+  item.closest('.popup').classList.add('popup_opened');
 }
 
 function editPopup () {
@@ -89,8 +88,7 @@ function addElement(item) {
 }
 
 function closePopup(popup) {
-  interactiveContainer.classList.remove('popup_opened');
-  popup.classList.remove('popup_opened');
+  popup.closest('.popup').classList.remove('popup_opened');
 }
 
 function formSubmitHandler (evt) {
