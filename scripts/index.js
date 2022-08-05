@@ -45,6 +45,19 @@ const initialCards = [
   }
 ]; 
 
+
+
+function isEscapeEvent (evt) {
+  if (evt.key === 'Escape') {
+    closePopup(content.querySelector('.popup_opened'));
+  }
+}
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', isEscapeEvent);
+}
+
 function addInteractiveCard (elem, img) {
   const buttonLikeImg = elem.querySelector('.element__btn-heart');
   buttonLikeImg.addEventListener('click',  (evt) => {
@@ -63,10 +76,6 @@ function addInteractiveCard (elem, img) {
     formImage.querySelector('.zoom__figcaption').textContent = img.alt;
     openPopup(imagePopup);
   })
-}
-
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
 }
 
 function editPopup () {
@@ -91,6 +100,7 @@ function addElement(item) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', isEscapeEvent);
 }
 
 function formSubmitHandler (evt) {
@@ -124,3 +134,13 @@ buttonsCloseList.forEach(item => {
     closePopup(item.closest('.popup'));
   });
 });
+content.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
+})
+/*document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(content.querySelector('.popup_opened'));
+  }
+})*/

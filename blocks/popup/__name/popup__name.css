@@ -6,8 +6,13 @@
   font-size: 14px;
   line-height: 17px;
   padding: 0;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
+
+/*.popup__name:invalid {
+  border-bottom: 1px solid #FF0000;
+}
+*/
 @media screen and (max-width: 800px) {
   .popup__name {
     height: 37px;
