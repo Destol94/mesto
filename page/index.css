@@ -35,6 +35,7 @@
 @import url(../blocks/popup/__span-error/popup__span-error.css);
 @import url(../blocks/popup/__span-error/_active/popup__span-error_active.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__field/popup__field.css);
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__occupation/popup__occupation.css);
 @import url(../blocks/popup/__btn-submit/popup__btn-submit.css);

@@ -1,4 +1,5 @@
 const content = document.querySelector('.page');
+const popups = Array.from(document.querySelectorAll('.popup'));
 const cardsContainer = content.querySelector('.elements');
 const profilePopup = content.querySelector('.popup_profile');
 const formPopup = content.querySelector('.popup__form_edit');
@@ -47,7 +48,7 @@ const initialCards = [
 
 
 
-function isEscapeEvent (evt) {
+function setEscapeEvent (evt) {
   if (evt.key === 'Escape') {
     closePopup(content.querySelector('.popup_opened'));
   }
@@ -55,7 +56,12 @@ function isEscapeEvent (evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', isEscapeEvent);
+  const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+  const buttonElement = popup.querySelector('.popup__btn-submit');
+  if (!popup.classList.contains('popup_image')){
+    toggleButtonState(inputList, buttonElement, settingsObject);
+  }
+  document.addEventListener('keydown', setEscapeEvent);
 }
 
 function addInteractiveCard (elem, img) {
@@ -100,7 +106,7 @@ function addElement(item) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', isEscapeEvent);
+  document.removeEventListener('keydown', setEscapeEvent);
 }
 
 function formSubmitHandler (evt) {
@@ -139,8 +145,10 @@ content.addEventListener('click', (evt) => {
     closePopup(evt.target);
   }
 })
-/*document.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape') {
-    closePopup(content.querySelector('.popup_opened'));
-  }
-})*/
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__btn-close')) { // Почитайте, что такое evt.currentTarget
+      closePopup(popup);
+    }
+  })
+}) 

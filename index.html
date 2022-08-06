@@ -35,10 +35,14 @@
     <div class="popup popup_profile">
       <form class="popup__form popup__form_edit" name="popupFormEdit" id="#popupFormEdit" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__name popup__input" value="" name="inputName" id="inputName" required minlength="2" maxlength="40">
-        <span class="popup__span-error inputName-error"></span>
-        <input type="text" class="popup__occupation popup__input" value="" name="inpitOccupation" id="inpitOccupation" required minlength="2" maxlength="200">
-        <span class="popup__span-error inpitOccupation-error"></span>
+        <div class="popup__field">
+          <input type="text" class="popup__name popup__input" value="" name="inputName" id="inputName" required minlength="2" maxlength="40">
+          <span class="popup__span-error inputName-error"></span>
+        </div>
+        <div class="popup__field">
+          <input type="text" class="popup__occupation popup__input" value="" name="inpitOccupation" id="inpitOccupation" required minlength="2" maxlength="200">
+          <span class="popup__span-error inpitOccupation-error"></span>
+        </div>
         <button type="submit" class="popup__btn-submit button">Сохранить</button>
         <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
       </form>
@@ -46,10 +50,14 @@
     <div class="popup popup_card">
       <form class="popup__form popup__form_card" name="popupFormAddCard" id="#popupFormAddCard">
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" class="popup__name popup__input" value="" name="inputTitle" id="inputTitle" placeholder="Название" required minlength="2" maxlength="30">
-        <span class="popup__span-error inputTitle-error"></span>
-        <input class="popup__occupation popup__input" value="" type="url" name="inpitLink" id="inpitLink" placeholder="Ссылка на картинку"  required>
-        <span class="popup__span-error inpitLink-error"></span>
+        <div class="popup__field">
+          <input type="text" class="popup__name popup__input" value="" name="inputTitle" id="inputTitle" placeholder="Название" required minlength="2" maxlength="30">
+          <span class="popup__span-error inputTitle-error"></span>
+        </div>
+        <div class="popup__field">
+          <input class="popup__occupation popup__input" value="" type="url" name="inpitLink" id="inpitLink" placeholder="Ссылка на картинку"  required>
+          <span class="popup__span-error inpitLink-error"></span>
+        </div>
         <button type="submit" class="popup__btn-submit button">Создать</button>
         <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
       </form>

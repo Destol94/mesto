@@ -3,6 +3,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 430px;
   height: 330px;
   border-radius: 10px;
