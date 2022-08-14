@@ -1,34 +1,46 @@
-import {imagePopup, formImage} from './date.js';
+import {imagePopup, formImage} from '../utils/constants.js';
 import {openPopup} from './index.js';
 
 export class Card {
-  constructor(date, templateElem) {
-    this._date = date;
+  constructor(data, templateElem) {
+    this._data = data;
     this._templateElem = templateElem;
   }
 
   _getTemlpate() {
-    const elem = this._templateElem.querySelector('.element').cloneNode(true);
+    const elem = document.querySelector(this._templateElem).content.querySelector('.element').cloneNode(true);
     return elem;
   }
 
+  _toggleBtnLike() {
+    this._buttonLikeImg.classList.toggle('element__btn-heart_activ');
+  }
+
+  _deleteCard() {
+    this._buttonDeleteCard.closest('.element').remove();
+  }
+  
+  _enlargeImage() {
+    this._imageZoom = formImage.querySelector('.zoom__img');
+    this._imageZoom.src = this._img.src;
+    this._imageZoom.alr = this._img.alt;
+    formImage.querySelector('.zoom__figcaption').textContent = this._img.alt;
+    openPopup(imagePopup);
+  }
+
   _addInteractiveCard() {
-    const buttonLikeImg = this._card.querySelector('.element__btn-heart');
-    buttonLikeImg.addEventListener('click', (evt) => {
-      evt.target.classList.toggle('element__btn-heart_activ');
+    this._buttonLikeImg = this._card.querySelector('.element__btn-heart');
+    this._buttonLikeImg.addEventListener('click', () => {
+      this._toggleBtnLike();
     });
 
-    const buttonDeleteCard = this._card.querySelector('.element__trashcan');
-    buttonDeleteCard.addEventListener('click', (evt) => {
-      evt.target.closest('.element').remove();
+    this._buttonDeleteCard = this._card.querySelector('.element__trashcan');
+    this._buttonDeleteCard.addEventListener('click', () => {
+      this._deleteCard();
     });
 
-    this._img.addEventListener('click', () => { 
-      const imageZoom = formImage.querySelector('.zoom__img');
-      imageZoom.src = this._img.src;
-      imageZoom.alr = this._img.alt;
-      formImage.querySelector('.zoom__figcaption').textContent = this._img.alt;
-      openPopup(imagePopup);
+    this._img.addEventListener('click', () => {
+      this._enlargeImage();
     })
 
   }
@@ -36,9 +48,9 @@ export class Card {
   generateCard() {
     this._card = this._getTemlpate();
     this._img = this._card.querySelector('.element__img');
-    this._img.src = this._date.link;
-    this._img.alt = this._date.name;
-    this._card.querySelector('.element__text').textContent = this._date.name;
+    this._img.src = this._data.link;
+    this._img.alt = this._data.name;
+    this._card.querySelector('.element__text').textContent = this._data.name;
     this._addInteractiveCard();
     return this._card;
   }

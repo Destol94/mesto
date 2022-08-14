@@ -1,16 +1,12 @@
-const settingsObject = ({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__btn-submit',
-  inactiveButtonClass: 'popup__btn-submit_disabled',
-  inputErrorClass: 'popup__input_error',
-  errorClass: 'popup__span-error_active'
-})
+import {fillFormText} from './index.js';
+import {validationSelectorsConfig} from '../utils/constants.js'
+fillFormText();
 class FormValidator {
-  constructor(formItem, settingsObject) {
-    this._setting = settingsObject;
+  constructor(formItem, validationSelectorsConfig) {
+    this._setting = validationSelectorsConfig;
     this._formItem = formItem;
   }
+  
   enableValidation() {
     this._inputList = Array.from(this._formItem.querySelectorAll(`${this._setting.inputSelector}`));
     this._buttonElement = this._formItem.querySelector(`${this._setting.submitButtonSelector}`);
@@ -65,14 +61,13 @@ class FormValidator {
 }
 
 
-const forms = Array.from(document.querySelectorAll(`${settingsObject.formSelector}`));
+const forms = Array.from(document.querySelectorAll(`${validationSelectorsConfig.formSelector}`));
 export const formList = [];
 forms.forEach(form => {
   form.addEventListener('submit', (evt => {
     evt.preventDefault();
   }))
-  const formValid = new FormValidator(form, settingsObject);
+  const formValid = new FormValidator(form, validationSelectorsConfig);
   formValid.enableValidation();
   formList.push(formValid);
 });
-console.log(formList);

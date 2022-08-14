@@ -2,3 +2,7 @@
   opacity: .6;
   cursor: pointer;
 }
+.button:hover:disabled {
+  cursor: default;
+  opacity: .3;
+}
