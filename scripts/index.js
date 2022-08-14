@@ -17,6 +17,7 @@ export function openPopup(popup) {
 function editPopup () {
   fillFormText();
   openPopup(profilePopup);
+  formList[0].enableValidation();
 }
 
 export function fillFormText() {

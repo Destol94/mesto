@@ -12,6 +12,9 @@ class FormValidator {
     this._buttonElement = this._formItem.querySelector(`${this._setting.submitButtonSelector}`);
     this.toggleButtonState();
     this._inputList.forEach((input) => {
+        this._isValid(input);
+    })
+    this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._isValid(input);
         this.toggleButtonState();
@@ -42,13 +45,13 @@ class FormValidator {
     }
   }
 
- _hasInvalidInput() {
+  _hasInvalidInput() {
     return this._inputList.some(input => {
       return !input.validity.valid;
     })
   }
 
-  toggleButtonState () {
+  toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(`${this._setting.inactiveButtonClass}`);
       this._buttonElement.setAttribute('disabled', 'disabled');
