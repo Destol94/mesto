@@ -17,7 +17,10 @@ export function openPopup(popup) {
 function editPopup () {
   fillFormText();
   openPopup(profilePopup);
-  formList[0].enableValidation();
+  const editForm = formList.find((item) => {
+    return item._formItem === profilePopup.querySelector('#popupFormEdit');
+  });
+  editForm.enableValidation();
 }
 
 export function fillFormText() {
@@ -44,7 +47,10 @@ function formSubmitAdd (evt) {
   item.link = url.value;
   renderCard(item);
   formCard.reset();
-  formList[1].toggleButtonState();
+  const cardAddForm = formList.find((item) => {
+    return item._formItem === cardPopup.querySelector('#popupFormAddCard');
+  })
+  cardAddForm.toggleButtonState();
   closePopup(cardPopup);
 }
 

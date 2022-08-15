@@ -1,6 +1,4 @@
-import {fillFormText} from './index.js';
 import {validationSelectorsConfig} from '../utils/constants.js'
-fillFormText();
 class FormValidator {
   constructor(formItem, validationSelectorsConfig) {
     this._setting = validationSelectorsConfig;

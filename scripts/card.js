@@ -2,13 +2,13 @@ import {imagePopup, formImage} from '../utils/constants.js';
 import {openPopup} from './index.js';
 
 export class Card {
-  constructor(data, templateElem) {
+  constructor(data, templateSelector) {
     this._data = data;
-    this._templateElem = templateElem;
+    this._templateSelector = templateSelector;
   }
 
   _getTemlpate() {
-    const elem = document.querySelector(this._templateElem).content.querySelector('.element').cloneNode(true);
+    const elem = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
     return elem;
   }
 
