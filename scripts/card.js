@@ -1,10 +1,8 @@
-import {imagePopup, formImage} from '../utils/constants.js';
-import {openPopup} from './index.js';
-
 export class Card {
-  constructor(data, templateSelector) {
-    this._data = data;
+  constructor({item, handleCardClick }, templateSelector) {
+    this._data = item;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick ;
   }
 
   _getTemlpate() {
@@ -20,13 +18,6 @@ export class Card {
     this._buttonDeleteCard.closest('.element').remove();
   }
   
-  _enlargeImage() {
-    this._imageZoom = formImage.querySelector('.zoom__img');
-    this._imageZoom.src = this._img.src;
-    this._imageZoom.alr = this._img.alt;
-    formImage.querySelector('.zoom__figcaption').textContent = this._img.alt;
-    openPopup(imagePopup);
-  }
 
   _addInteractiveCard() {
     this._buttonLikeImg = this._card.querySelector('.element__btn-heart');
@@ -38,10 +29,7 @@ export class Card {
     this._buttonDeleteCard.addEventListener('click', () => {
       this._deleteCard();
     });
-
-    this._img.addEventListener('click', () => {
-      this._enlargeImage();
-    })
+    this._img.addEventListener('click', (Event) => this._handleCardClick(Event));
 
   }
 

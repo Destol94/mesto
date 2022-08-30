@@ -1,0 +1,11 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "* Данный сайт позволяет менять имя и описание о себе. Сайт написан с целью практики JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Denis Stekachev",
+  "license": "ISC"
+}

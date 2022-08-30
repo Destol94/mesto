@@ -1,7 +1,13 @@
 import {content, popups, cardsContainer, profilePopup, formPopup, nameInput, jobInput, cardPopup, formCard, name, url, imagePopup, formImage, elementTemplate, buttonsCloseList, profile, nameProfile, occupationProfile, buttonEdit, buttonAdd, initialCards} from '../utils/constants.js'
 
 import {Card} from './Card.js'
+import Section from './Section.js';
+import Popup from './Popup.js';
+import UserInfo from './UserInfo.js';
 import {formList} from './Validate.js'
+import PopupWithForm from './PopupWithForm.js';
+import PopupWithImage from './PopupWithImage.js';
+
 
 function setEscapeEvent (evt) {
   if (evt.key === 'Escape') {
@@ -15,67 +21,77 @@ export function openPopup(popup) {
 }
 
 function editPopup () {
-  fillFormText();
-  openPopup(profilePopup);
+  const infoLoad = new UserInfo({});
+  infoLoad.fillFormText({});
+  const popup = new Popup(profilePopup);
+  popup.open();
+
   const editForm = formList.find((item) => {
     return item._formItem === profilePopup.querySelector('#popupFormEdit');
   });
   editForm.enableValidation();
 }
 
-export function fillFormText() {
-  nameInput.value = nameProfile.textContent;
-  jobInput.value = occupationProfile.textContent;
-};
-
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', setEscapeEvent);
 }
 
-function formProfileSubmitHandler (evt) {
-  evt.preventDefault();
-  nameProfile.textContent = nameInput.value;
-  occupationProfile.textContent = jobInput.value;
-  closePopup(profilePopup);
-}
-
-function formSubmitAdd (evt) {
-  evt.preventDefault();
-  const item = {};
-  item.name = name.value;
-  item.link = url.value;
-  renderCard(item);
-  formCard.reset();
-  const cardAddForm = formList.find((item) => {
-    return item._formItem === cardPopup.querySelector('#popupFormAddCard');
+formPopup.addEventListener('submit', (evt)=> {
+  const popupForm = new PopupWithForm(profilePopup, (evt)=> {
+   
+    popupForm.setEventListeners(evt);
+    const setProfileInfo = new UserInfo({});
+    setProfileInfo.setUserInfo({});
+    popupForm.close();
   })
-  cardAddForm.toggleButtonState();
-  closePopup(cardPopup);
+  popupForm.callBack(evt);
+});
+
+function handleCardClick(Event) {
+  const popupView = new PopupWithImage(imagePopup);
+  popupView.open(Event);
 }
 
-function renderCard (elem) {
-  
-  const card = new Card(elem, '#element');
-  cardsContainer.prepend(card.generateCard());
-}
-
-formPopup.addEventListener('submit', formProfileSubmitHandler);
 buttonEdit.addEventListener('click', editPopup);
-formCard.addEventListener('submit', formSubmitAdd);
+formCard.addEventListener('submit', ()=> {
+  const popupForm = new PopupWithForm(cardPopup, ()=> {
+    const card = new Section({
+      items: [popupForm._getInputValues()],
+      renderer: (item)=> {
+        item.link = item.occupation;
+        const cardItem = new Card({item, handleCardClick}, '#element');
+
+
+        card.addItem(cardItem.generateCard());
+    }}, cardsContainer)
+    card.renderer();
+    popupForm.close();
+  })
+  popupForm.callBack();
+});
+
 buttonAdd.addEventListener('click', ()=> {
-  openPopup(cardPopup)
+  const popup = new Popup(cardPopup);
+  popup.open();
 });
-initialCards.forEach(renderCard);
-buttonsCloseList.forEach(item => {
-  item.addEventListener('click' , () => {
-    closePopup(item.closest('.popup'));
-  });
-});
+
+
+const cardList = new Section({
+  items: initialCards, 
+  renderer: (item) => {
+    const card = new Card({item, handleCardClick}, '#element');
+
+
+    cardList.addItem(card.generateCard());
+    
+}}, cardsContainer)
+
+cardList.renderer();
+
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__btn-close')) { // Почитайте, что такое evt.currentTarget
-      closePopup(popup);
-    }
+    const popupSetEventListener = new Popup(popup);
+    popupSetEventListener.setEventListeners(evt);
   })
 })
