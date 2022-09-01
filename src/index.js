@@ -1,12 +1,12 @@
-import {content, popups, cardsContainer, profilePopup, formPopup, nameInput, jobInput, cardPopup, formCard, name, url, imagePopup, formImage, elementTemplate, buttonsCloseList, profile, nameProfile, occupationProfile, buttonEdit, buttonAdd, initialCards} from '../utils/constants.js'
+import {content, popups, cardsContainer, profilePopup, formPopup, nameInput, jobInput, cardPopup, formCard, name, url, imagePopup, formImage, elementTemplate, buttonsCloseList, profile, nameProfile, occupationProfile, buttonEdit, buttonAdd, initialCards} from './utils/constants.js'
 
-import {Card} from '../scripts/Card.js'
-import Section from '../scripts/Section.js';
-import Popup from '../scripts/Popup.js';
-import UserInfo from '../scripts/UserInfo.js';
-import {formList} from '../scripts/Validate.js'
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
+import {Card} from './scripts/Card.js'
+import Section from './scripts/Section.js';
+import Popup from './scripts/Popup.js';
+import UserInfo from './scripts/UserInfo.js';
+import {formList} from './scripts/Validate.js'
+import PopupWithForm from './scripts/PopupWithForm.js';
+import PopupWithImage from './scripts/PopupWithImage.js';
 import './page/index.css';
 
 function setEscapeEvent (evt) {
@@ -73,6 +73,10 @@ formCard.addEventListener('submit', ()=> {
 
 buttonAdd.addEventListener('click', ()=> {
   const popup = new Popup(cardPopup);
+  const editForm = formList.find((item) => {
+    return item._formItem === cardPopup.querySelector('#popupFormAddCard');
+  });
+  editForm.enableValidation();
   popup.open();
 });
 
