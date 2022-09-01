@@ -73,6 +73,10 @@ formCard.addEventListener('submit', ()=> {
 
 buttonAdd.addEventListener('click', ()=> {
   const popup = new Popup(cardPopup);
+  const editForm = formList.find((item) => {
+    return item._formItem === cardPopup.querySelector('#popupFormAddCard');
+  });
+  editForm.enableValidation();
   popup.open();
 });
 
