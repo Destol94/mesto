@@ -1,12 +1,12 @@
 import {content, popups, cardsContainer, profilePopup, formPopup, nameInput, jobInput, cardPopup, formCard, name, url, imagePopup, formImage, elementTemplate, buttonsCloseList, profile, nameProfile, occupationProfile, buttonEdit, buttonAdd, initialCards} from '../utils/constants.js'
 
-import {Card} from './Card.js'
-import Section from './Section.js';
-import Popup from './Popup.js';
-import UserInfo from './UserInfo.js';
-import {formList} from './Validate.js'
-import PopupWithForm from './PopupWithForm.js';
-import PopupWithImage from './PopupWithImage.js';
+import {Card} from '../scripts/Card.js'
+import Section from '../scripts/Section.js';
+import Popup from '../scripts/Popup.js';
+import UserInfo from '../scripts/UserInfo.js';
+import {formList} from '../scripts/Validate.js'
+import PopupWithForm from '../scripts/PopupWithForm.js';
+import PopupWithImage from '../scripts/PopupWithImage.js';
 
 
 function setEscapeEvent (evt) {
