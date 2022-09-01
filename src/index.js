@@ -7,7 +7,7 @@ import UserInfo from '../scripts/UserInfo.js';
 import {formList} from '../scripts/Validate.js'
 import PopupWithForm from '../scripts/PopupWithForm.js';
 import PopupWithImage from '../scripts/PopupWithImage.js';
-
+import './page/index.css';
 
 function setEscapeEvent (evt) {
   if (evt.key === 'Escape') {

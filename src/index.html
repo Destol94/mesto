@@ -4,27 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./page/index.css" rel="stylesheet">
   <title>mesto</title>
 </head>
 <body>
   <div class="page">
     <header class="header">
-      <img src="./image/logo.svg" alt="Логотип страницы" class="header__logo">
+      <img src="<%=require('./image/logo.svg')%>" alt="Логотип страницы" class="header__logo">
     </header>
     <main class="main">
       <section class="profile">
           <div class="profile__container">
-            <img src="./image/Avatar.jpg" alt="Фотография Жак-Ив Кусто" class="profile__avatar">
+            <img src="<%=require('./image/Avatar.jpg')%>" alt="Фотография Жак-Ив Кусто" class="profile__avatar">
             <div class="profile__info">
               <div class="profile__name-edit">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__edit-button button" type="button"><img class="profile__edit-button-img" src="./image/EditButton.svg" alt="кнопка изменить"></button>
+                <button class="profile__edit-button button" type="button"><img class="profile__edit-button-img" src="<%=require('./image/EditButton.svg')%>" alt="кнопка изменить"></button>
               </div>
               <p class="profile__occupation">Исследователь океана</p>
             </div>
           </div>
-          <button class="profile__add-button button" type="button"><img src="./image/Vector.svg" alt="добавить" class="profile__add-button-img"></button>
+          <button class="profile__add-button button" type="button"><img src="<%=require('./image/Vector.svg')%>" alt="добавить" class="profile__add-button-img"></button>
       </section>
       <section class="elements">
       </section>
@@ -44,7 +43,7 @@
           <span class="popup__span-error inpitOccupation-error"></span>
         </div>
         <button type="submit" class="popup__btn-submit button">Сохранить</button>
-        <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
+        <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="<%=require('./image/CloseIcon.svg')%>"></button>
       </form>
     </div>
     <div class="popup popup_card">
@@ -59,29 +58,28 @@
           <span class="popup__span-error inpitLink-error"></span>
         </div>
         <button type="submit" class="popup__btn-submit button">Создать</button>
-        <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
+        <button type="button" class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="<%=require('./image/CloseIcon.svg')%>"></button>
       </form>
     </div>
     <div class="popup popup_image">
       <div class="zoom">
         <figure class="zoom__container">
-          <img class="zoom__img" src="./image/CloseIcon.svg" alt="">
+          <img class="zoom__img" src="<%=require('./image/CloseIcon.svg')%>" alt="">
           <figcaption class="zoom__figcaption"></figcaption>
         </figure>
-        <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="./image/CloseIcon.svg"></button>
+        <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="<%=require('./image/CloseIcon.svg')%>"></button>
       </div>
     </div>
     <template id="element">
       <div class="element">
-        <img src="./image/CloseIcon.svg" alt="" class="element__img">
+        <img src="<%=require('./image/CloseIcon.svg')%>" alt="" class="element__img">
         <div class="element__footer">
           <h2 class="element__text"></h2>
           <button class="element__btn-heart button" type="button"></button>
-          <button class="element__trashcan button"><img src="./image/trashcan.svg" alt="кнопка удаления карточки"></button>
+          <button class="element__trashcan button"><img src="<%=require('./image/trashcan.svg')%>" alt="кнопка удаления карточки"></button>
         </div>
       </div>
     </template>
   </div>
-  <script type="module" src="./src/index.js"></script>
 </body>
 </html>
