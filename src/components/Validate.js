@@ -1,5 +1,4 @@
-import {validationSelectorsConfig} from '../utils/constants.js'
-class FormValidator {
+export default class Validate {
   constructor(formItem, validationSelectorsConfig) {
     this._setting = validationSelectorsConfig;
     this._formItem = formItem;
@@ -9,9 +8,6 @@ class FormValidator {
     this._inputList = Array.from(this._formItem.querySelectorAll(`${this._setting.inputSelector}`));
     this._buttonElement = this._formItem.querySelector(`${this._setting.submitButtonSelector}`);
     this.toggleButtonState();
-    this._inputList.forEach((input) => {
-        this._isValid(input);
-    })
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._isValid(input);
@@ -62,13 +58,3 @@ class FormValidator {
 }
 
 
-const forms = Array.from(document.querySelectorAll(`${validationSelectorsConfig.formSelector}`));
-export const formList = [];
-forms.forEach(form => {
-  form.addEventListener('submit', (evt => {
-    evt.preventDefault();
-  }))
-  const formValid = new FormValidator(form, validationSelectorsConfig);
-  formValid.enableValidation();
-  formList.push(formValid);
-});
