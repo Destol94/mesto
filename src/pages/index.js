@@ -4,31 +4,26 @@ import {Card} from '../components/Card.js'
 import Section from '../components/Section.js';
 import Popup from '../components/Popup.js';
 import UserInfo from '../components/UserInfo.js';
-import Validate from '../components/Validate.js';
+import FormValidator  from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import './index.css';
 
 
-const profileValidation = new Validate(popupFormEdit, validationSelectorsConfig);
-const newCardValidation = new Validate(popupFormAddCard, validationSelectorsConfig);
+const profileValidation = new FormValidator(popupFormEdit, validationSelectorsConfig);
+const newCardValidation = new FormValidator(popupFormAddCard, validationSelectorsConfig);
 profileValidation.enableValidation();
 newCardValidation.enableValidation();
 
-const setProfileInfo = new UserInfo({});
+const setProfileInfo = new UserInfo({name: '.profile__name', occupation: '.profile__occupation'});
 
 const popupEdit = new PopupWithForm('.popup_profile', (items)=> {
   setProfileInfo.setUserInfo({name: items.inputName, ocupation: items.inpitOccupation});
 })
 popupEdit.setEventListeners();
 
-const popupCard = new PopupWithForm('.popup_card', (items)=> {
-  const card = new Section({
-    items: [items],
-    renderer: (item)=> {
-      card.addItem(сreateCard(item, handleCardClick));
-  }}, '.elements')
-  card.renderer();
+const popupCard = new PopupWithForm('.popup_card', (item)=> {
+  cardList.addItem(сreateCard(item));
   popupCard.close();
 })
 popupCard.setEventListeners();
@@ -40,14 +35,14 @@ popupView.setEventListeners();
 const cardList = new Section({
   items: initialCards, 
   renderer: (item) => {
-    cardList.addItem(сreateCard(item, handleCardClick));
+    cardList.addItem(сreateCard(item));
     
 }}, '.elements')
 
 cardList.renderer();
 
 
-function сreateCard (item, handleCardClick) {
+function сreateCard (item) {
   const cardItem = new Card({item, handleCardClick}, '#element');
   return cardItem.generateCard();
 }

@@ -14,14 +14,11 @@ export default class PopupWithForm extends Popup {
     })
     return this._inputsValues;
   }
-  callBack(items){
-    this._callBack(items);
-  }
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this.callBack(this._getInputValues());
+      this._callBack(this._getInputValues());
       this.close();
     })
   }
