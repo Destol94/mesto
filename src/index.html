@@ -14,7 +14,10 @@
     <main class="main">
       <section class="profile">
           <div class="profile__container">
-            <img src="<%=require('./images/Avatar.jpg')%>" alt="Фотография Жак-Ив Кусто" class="profile__avatar">
+            <!-- <div class="profile__box-img"> -->
+              <img src="<%=require('./images/Avatar.jpg')%>" alt="Фотография Жак-Ив Кусто" class="profile__avatar">
+              <!-- <div class="profile__pencil"></div>
+            </div> -->
             <div class="profile__info">
               <div class="profile__name-edit">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -70,12 +73,33 @@
         <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="<%=require('./images/CloseIcon.svg')%>"></button>
       </div>
     </div>
+    <div class="popup popup_confirm" id="popup_confirm">
+      <form class="popup__form popup__form_confirm">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button type="submit" class="popup__btn-submit button">Да</button>
+        <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="<%=require('./images/CloseIcon.svg')%>"></button>
+      </form>
+    </div>
+    <div class="popup popup_avatar" id="popup_avatar">
+      <form class="popup__form popup__form_avatar" name="popupFormAvatar">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <div class="popup__field">
+          <input class="popup__occupation popup__input" value="" type="url" name="link" id="inpitLinkAvatar" placeholder="Ссылка на картинку"  required>
+          <span class="popup__span-error inpitLinkAvatar-error"></span>
+        </div>
+        <button type="submit" class="popup__btn-submit button">Сохранить</button>
+        <button class="popup__btn-close button"><img class="popup__btn-close-img" alt="кнопка закрыть" src="<%=require('./images/CloseIcon.svg')%>"></button>
+      </form>
+    </div>
     <template id="element">
       <div class="element">
         <img src="<%=require('./images/CloseIcon.svg')%>" alt="" class="element__img">
         <div class="element__footer">
           <h2 class="element__text"></h2>
-          <button class="element__btn-heart button" type="button"></button>
+          <div class="element__box-like">
+            <button class="element__btn-heart button" type="button"></button>
+            <p class="element__number-of-likes">1</p>
+          </div>
           <button class="element__trashcan button"><img src="<%=require('./images/trashcan.svg')%>" alt="кнопка удаления карточки"></button>
         </div>
       </div>

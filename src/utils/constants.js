@@ -18,6 +18,8 @@ const nameProfile = profile.querySelector('.profile__name');
 const occupationProfile = profile.querySelector('.profile__occupation');
 const buttonEdit = content.querySelector('.profile__edit-button');
 const buttonAdd = content.querySelector('.profile__add-button');
+const inputAvatar = document.querySelector('.popup_avatar').querySelector('.popup__input');
+const profileAvatar = document.querySelector('.profile__avatar');
 const initialCards = [
   {
     name: 'Архыз',
@@ -52,4 +54,4 @@ const validationSelectorsConfig = ({
   inputErrorClass: 'popup__input_error',
   errorClass: 'popup__span-error_active'
 })
-export {content, popups, cardsContainer, profilePopup, formPopup, nameInput, jobInput, cardPopup, formCard, name, url, imagePopup, formImage, elementTemplate, buttonsCloseList, profile, nameProfile, occupationProfile, buttonEdit, buttonAdd, initialCards, validationSelectorsConfig}
+export {profileAvatar,inputAvatar,content, popups, cardsContainer, profilePopup, formPopup, nameInput, jobInput, cardPopup, formCard, name, url, imagePopup, formImage, elementTemplate, buttonsCloseList, profile, nameProfile, occupationProfile, buttonEdit, buttonAdd, initialCards, validationSelectorsConfig}
